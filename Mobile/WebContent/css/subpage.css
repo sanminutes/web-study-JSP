@@ -1,0 +1,11 @@
+#brand {
+		width:90%;
+		height:90%;
+		border:2px solid green;
+		margin:0 auto;
+	}
+	#brand > ul > li {
+		text-align:center;
+		padding-top:200px;
+		padding-bottom:200px;
+	}

@@ -1,0 +1,31 @@
+/*ÄÜÅÙÃ÷ */
+	#content {
+	margin: 0 auto;	
+	overflow: hidden;
+	
+	}
+	
+	#content > #main_section {
+	width:33%;
+	float: left;
+	text-align:center;
+
+	}
+
+/* º»¹® */
+	#main_section > article.main_article {
+	margin: 10px;
+	padding: 20px;
+	border: 1px solid black;
+
+	}
+
+/* Å×ÀÌºí */
+	#table {
+	border-top: 2px solid gray;
+	border-bottom: 1px solid gray;
+	height:25px;
+	color:#5CD1E5;
+	padding:5px;
+
+	}

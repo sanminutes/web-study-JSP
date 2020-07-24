@@ -1,0 +1,122 @@
+001 <%@ page contentType="text/html; charset=UTF-8"%>
+002 <%
+003   String cp = request.getContextPath();
+004 %>
+005 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+006 <html>
+007 <head>
+008 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+009 <title>Ajax를 이용한 ID 중복 테스트</title>
+010 
+011 <!-- Ajax 관련 js 파일 연결 필수 -->
+012 <script type="text/javascript" src="<%=cp%>/js/ajaxUtil.js"></script>
+013 
+014 <script type="text/javascript">
+015   window.onload=function() {
+016     //이벤트 등록
+017     document.getElementById("uId").onchange=sendIt;
+018     document.getElementById("idcheck").onclick=sendIt;
+019   };
+020   
+021   //Ajax 요청 부분
+022   function sendIt() {
+023     //아이디 가져오기
+024     var uId = document.getElementById("uId").value;
+025     if (uId != "") {
+026       //Ajax 객체 생성 -> ajaxUtil.js 필요함.
+027       xmlHttp = createXMLHttpRequest();
+028       //응답이 있는 경우 처리할 함수 지정
+029       xmlHttp.onreadystatechange = callBack;
+030       
+031       //POST 방식인 경우는 한글 전송됨(권장)
+032       var postString = "uId="+uId;
+033       xmlHttp.open("POST","idcheck.jsp",true);
+034       xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=utf-8");
+035       xmlHttp.send(postString);
+036     }
+037   }
+038   
+039   //응답 확인 부분
+040   function callBack() {
+041     //readyState 상태가 4(응답 완료)인지 확인
+042     if(xmlHttp.readyState == 4) {
+043       //status가 200(정상 응답)인지 확인
+044       if(xmlHttp.status == 200) {
+045         printData();
+046       }
+047     }
+048   }
+049   
+050   //응답 처리 부분
+051   function printData() {
+052     //응답으로 XML 형태의 자료가 전달되므로
+053     //분석 과정 필요
+054     var result = xmlHttp.responseXML.getElementsByTagName("root")[0];
+055     //응답 내용에 따라서 메시지 출력
+056     if (result.firstChild.nodeValue == "true") {
+057       var out = document.getElementById("results");
+058       out.innerHTML = "사용 가능한 아이디 입니다.";
+059       out.style.color = "blue";
+060     } else {
+061       var out = document.getElementById("results");
+062       out.innerHTML = "이미 사용중인 아이디입니다.";
+063       out.style.color = "red";
+064     }
+065   }
+066 </script>
+067 </head>
+068 <body>
+069 <table>
+070   <tr>
+071     <td>아이디:</td>
+072     
+073     <!-- onchange 이벤트 처리 -->
+074     <td><input type="text" name="uId" id="uId">
+075     
+076     <!--
+077     아이디 중복확인 버튼 추가
+078     onclick 이벤트 처리
+079     -->
+080     <input type="button" value="중복확인" id="idcheck">
+081     <!--
+082     중복 확인 메시지 출력 부분
+083     메시지 형태
+084     1. (파란색)사용 가능한 아이디입니다.
+085     2. (빨간색)이미 사용중인 아이디입니다. 다른 아이디를 입력하세요.
+086     -->
+087     <span id="results" style="color:red;"></span>
+088     
+089     </td>
+090   </tr>
+091   <tr>
+092     <td>패스워드:</td><td><input type="password" name="uPwd"></td>
+093   </tr>
+094   <tr>
+095     <td>이름:</td><td><input type="text" name="uName"></td>
+096   </tr>
+097   <tr>
+098     <td>성별:</td><td><input type="radio" name="uGender" value="남자">남자
+099       <input type="radio" name="uGender" value="여자">여자</td>
+100   </tr>
+101   <tr>
+102     <td>이상형:</td><td><input type="checkbox" name="uChoice1" value="김태희">김태희
+103       <input type="checkbox" name="uChoice1" value="한지혜">한지혜
+104       <input type="checkbox" name="uChoice1" value="한예슬">한예슬
+105       <input type="checkbox" name="uChoice1" value="김윤아">김윤아</td>
+106   </tr>
+107   <tr>
+108     <td>취미:</td><td><select name="uChoice2">
+109       <option value="게임">게임</option>
+110       <option value="공부">공부</option>
+111       <option value="운동">운동</option>
+112       <option value="그림">그림</option></select></td>
+113   </tr>
+114   <tr>
+115     <td>자기소개:</td><td><textarea name="uText" cols="50" rows="4"></textarea></td>
+116   </tr>
+117   <tr>
+118     <td align="center" colspan="2"><br><input type="submit" value="가입"></td><td></td>
+119   </tr>
+120 </table>
+121 </body>
+122 </html>
