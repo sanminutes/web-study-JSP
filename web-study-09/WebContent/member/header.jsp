@@ -23,7 +23,7 @@
 </head>
 <body>
 	<h3 style="text-align: center;">
-		<a href="login.do" style="color:black;">홈페이지 예제</a>
+		<a href="login.do" style="color:black;"><br>홈페이지 예제</a>
 	</h3>
 	<hr>
 </body>

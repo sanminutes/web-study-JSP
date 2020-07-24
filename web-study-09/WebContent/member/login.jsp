@@ -10,6 +10,7 @@
 table {
 	height: 100px;
 	margin: auto;
+	background-color:#AFE1FF	;
 }
 
 h2 {
