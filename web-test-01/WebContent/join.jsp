@@ -26,12 +26,13 @@
 	<div style="text-align: center;">
 		<br>
 		<h2>홈쇼핑 회원 등록</h2>
+		<br>
 		<form action="join.do" method="post" name="frm">
 
 
 			<table border="1" style="margin: auto;">
 				<tr>
-					<td>회원번호(자동발생)</td>
+					<td><b>회원번호(자동발생)</b></td>
 
 					<%
 						try {
@@ -61,27 +62,27 @@
 
 				</tr>
 				<tr>
-					<td>회원성명</td>
+					<td><b>회원성명</b></td>
 					<td><input type="text" name="custname"></td>
 				</tr>
 				<tr>
-					<td>회원전화</td>
+					<td><b>회원전화</b></td>
 					<td><input type="text" name="phone"></td>
 				</tr>
 				<tr>
-					<td>회원주소</td>
+					<td><b>회원주소</b></td>
 					<td><input type="text" name="address"></td>
 				</tr>
 				<tr>
-					<td>가입일자</td>
+					<td><b>가입일자</b></td>
 					<td><input type="text" name="joindate"></td>
 				</tr>
 				<tr>
-					<td>고객등급 [A:VIP,B:일반,C:직원]</td>
+					<td><b>고객등급 [A:VIP,B:일반,C:직원]</b></td>
 					<td><input type="text" name="grade"></td>
 				</tr>
 				<tr>
-					<td>도시코드</td>
+					<td><b>도시코드</b></td>
 					<td><input type="text" name="city"></td>
 				</tr>
 				<tr>
@@ -97,5 +98,7 @@
 			</script>
 		</form>
 	</div>
+	<br>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

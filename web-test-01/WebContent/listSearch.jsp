@@ -16,7 +16,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원목록조회/수정</title>
 </head>
 <body>
 
@@ -25,17 +25,18 @@
 	<div style="text-align: center">
 		<br>
 		<h2>회원목록조회/수정</h2>
-			<table border="1" style="margin: auto; text-align: center;">
-				<tr>
-					<th>회원번호</th>
-					<th>회원성명</th>
-					<th>전화번호</th>
-					<th>주소</th>
-					<th>가입일자</th>
-					<th>고객등급</th>
-					<th>거주지역</th>
-				</tr>
-				<%
+		<br>
+		<table border="1" style="margin: auto; text-align: center;">
+			<tr>
+				<th>회원번호</th>
+				<th>회원성명</th>
+				<th>전화번호</th>
+				<th>주소</th>
+				<th>가입일자</th>
+				<th>고객등급</th>
+				<th>거주지역</th>
+			</tr>
+			<%
 					try {
 						Class.forName("oracle.jdbc.driver.OracleDriver");
 						conn = DriverManager.getConnection(url, uid, pass);
@@ -68,7 +69,9 @@
 						}
 					}
 				%>
-			</table>
+		</table>
 	</div>
+	<br>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

@@ -31,6 +31,7 @@
 	<div style="text-align: center;">
 		<br>
 		<h2>홈쇼핑 회원 정보 수정</h2>
+		<br>
 		<form action="update.do" method="post" name="frm">
 
 
@@ -95,5 +96,7 @@
 			</script>
 		</form>
 	</div>
+	<br>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

@@ -4,9 +4,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title></title>
+	<style>
+* {
+	border-collapse: collapse;
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+	list-style: none;
+}
+</style>
 </head>
 <body>
-	<div style="text-align:center;">Copyright 2020. KIMSANGHOON All pictures cannot be copied without permission.</div>
+
+	<div style="text-align: center; background-color: blue; color:white;">
+		<br>Copyright 2020. KIMSANGHOON All pictures cannot be copied
+		without permission.<br>
+		<br>
+	</div>
 </body>
 </html>
